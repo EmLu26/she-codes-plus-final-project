@@ -22,9 +22,10 @@ li {
   line-height: 5px;
   list-style: none;
 }
-p {
+small {
   font-family: "Valera Round", sans-serif;
   color: #606470;
+  text-align: center;
 }
 .weather-app {
   border: 1px solid #606470;
