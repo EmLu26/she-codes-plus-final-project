@@ -3,6 +3,7 @@ body {
   font-family: "Varela Round", sans-serif;
 }
 h1,
+form,
 ul {
   font-weight: 700;
   margin-left: 20px;
@@ -33,6 +34,10 @@ p {
   max-width: 600px;
 }
 
+.weather-logo:hover {
+  font-size: larger;
+}
+
 .weather-logo,
 .weather-today,
 .wed-weather,
@@ -40,6 +45,11 @@ p {
 .fri-weather {
   color: #f0d43a;
 }
+
+#search-form {
+  padding-left: 4px;
+}
+
 #search-button {
   display: block;
   margin: 0 auto;
@@ -47,12 +57,14 @@ p {
 
 #city {
   font-weight: bold;
-}
-#city,
-#day-and-time,
-.weather-summary {
   font-size: 24px;
-  margin: 5px 0;
+  padding-top: 8px;
+}
+
+#day-and-time,
+#weather-summary {
+  font-size: 18px;
+  padding-top: 8px;
 }
 #temperature {
   color: #000;
