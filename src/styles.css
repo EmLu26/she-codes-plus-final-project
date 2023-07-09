@@ -83,3 +83,7 @@ small {
 #temperature {
   font-size: 64px;
 }
+
+#weather-info {
+  padding-top: -50px;
+}
