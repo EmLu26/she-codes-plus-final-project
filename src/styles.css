@@ -22,11 +22,17 @@ li {
   line-height: 5px;
   list-style: none;
 }
+
 small {
-  font-family: "Valera Round", sans-serif;
   color: #606470;
+  font-weight: 400;
+  height: 19px;
+  line-height: 5px;
+  font-size: 18;
+  font-family: "PT Sans", sans-serif;
   text-align: center;
 }
+
 .weather-app {
   border: 1px solid #606470;
   padding: 15px;
@@ -127,13 +133,4 @@ small {
   font-size: large;
   font-weight: bold;
   color: #3ebbf0;
-}
-#code-link {
-  color: #606470;
-  font-weight: 400;
-  height: 19px;
-  line-height: 5px;
-  font-size: 18;
-  font-family: "PT Sans", sans-serif;
-  text-align: center;
 }
