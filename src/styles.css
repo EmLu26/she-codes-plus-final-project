@@ -23,14 +23,19 @@ li {
   list-style: none;
 }
 
+li:first-letter {
+  text-transform: capitalize;
+}
+
 small {
   color: #606470;
   font-weight: 400;
   height: 19px;
   line-height: 5px;
-  font-size: 18;
   font-family: "PT Sans", sans-serif;
   text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 
 .weather-app {
@@ -45,12 +50,12 @@ small {
   font-size: larger;
 }
 
-.weather-logo,
-.weather-today,
-.wed-weather,
-.thurs-weather,
-.fri-weather {
+.weather-logo {
   color: #f0d43a;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.5;
 }
 
 #search-form {
@@ -75,62 +80,6 @@ small {
   padding-top: 8px;
 }
 
-#day-and-time,
-#weather-summary {
-  font-size: 18px;
-  padding-top: 8px;
-}
 #temperature {
-  color: #000;
-  font-size: 30px;
-}
-#celsius,
-#fahrenheit {
-  font-size: 18px;
-}
-.weather-today {
-  font-size: 24px;
-  margin-left: 20px;
-}
-.weather-details {
-  font-size: 18px;
-  margin-left: 80px;
-}
-.days {
-  text-align: center;
-  font-size: 14px;
-}
-.mon-weather,
-.tue-weather {
-  color: #38598b;
-}
-
-.mon-weather,
-.tue-weather,
-.wed-weather,
-.thurs-weather,
-.fri-weather {
-  border: 5px solid #225ed7;
-  border-radius: 50px;
-  padding: 25px 25px;
-  margin: 10px 0;
-}
-
-.weather-today:hover {
-  font-size: 32px;
-  font-weight: bold;
-}
-
-.mon-weather:hover,
-.tue-weather:hover,
-.thurs-weather:hover,
-.fri-weather:hover {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.wed-weather:hover {
-  font-size: large;
-  font-weight: bold;
-  color: #3ebbf0;
+  font-size: 64px;
 }
