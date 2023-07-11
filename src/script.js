@@ -41,25 +41,23 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `
-      <div class="col-2">
-      <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
-      <img
-      src="http://openweathermap.org/img/wn/${
-        forecastDay.weather[0].icon
-      }@2x.png"
-    alt=""
-    width="42"
-    />
-    <div class="weather-forecast-temperatures">
-    <span class="weather-forecast-temperature-max"> ${Math.round(
-      forecastDay.temp.max
-    )}&deg; </span>
-    <span class="weather-forecast-temperature-min"> ${Math.round(
-      forecastDay.temp.min
-    )}&deg; </span>
-    </div>
-    </div>
-    `;
+<div class="col-2">
+<div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+<img
+src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+alt=""
+width="42"
+/>
+<div class="weather-forecast-temperatures">
+<span class="weather-forecast-temperature-max"> ${Math.round(
+          forecastDay.temp.max
+        )}&deg; </span>
+<span class="weather-forecast-temperature-min"> ${Math.round(
+          forecastDay.temp.min
+        )}&deg; </span>
+</div>
+</div>
+`;
     }
   });
 
@@ -88,7 +86,7 @@ function displayTemperature(response) {
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
-  windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
+  windElement.innerHTML = Math.round(response.data.wind.speed);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
@@ -111,31 +109,22 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-function displayWeatherCondition(response) {
-  console.log(response.data);
-  document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
-}
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+let searchButton = document.querySelector("#search-button");
+searchButton.addEventListener("click", handleSubmit);
 
 function searchLocation(position) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiKey = "f8a86c0754be887a3900df2d5b893447";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
-  axios.get(apiUrl).then(displayWeatherCondition);
+  axios.get(apiUrl).then(displayTemperature, displayForecast);
 }
 
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
-
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", handleSubmit);
-
-let searchButton = document.querySelector("#search-button");
-searchButton.addEventListener("click", handleSubmit);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
